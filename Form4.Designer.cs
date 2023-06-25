@@ -177,6 +177,7 @@
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(125, 27);
             textBox6.TabIndex = 14;
+            textBox6.Visible = false;
             // 
             // button5
             // 
