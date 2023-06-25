@@ -129,6 +129,24 @@ namespace MitraSehatHospital
             }
             con.Close();
         }
+
+        private void drop_single_dokter(int doctor_id)
+        {
+            con.Open();
+            MySqlCommand dataCommand = new MySqlCommand("DELETE FROM doctors WHERE id = @doctor_id", con);
+            try
+            {
+                dataCommand.Parameters.AddWithValue("@doctor_id", doctor_id);
+                dataCommand.ExecuteNonQuery();
+                MessageBox.Show("Berhasil menghapus data", "Berhasil");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Gagal menghapus data. Dokter pernah melakukan pemeriksaan (checkup).", "Perhatian");
+            }
+            con.Close();
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             var rowIndex = dataGridView1.CurrentCell.RowIndex;
@@ -193,6 +211,18 @@ namespace MitraSehatHospital
             con.Close();
             clear_form();
             load_data_dokter();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var answer = MessageBox.Show("Anda yakin ingin menghapus data ini?", "Perhatian", MessageBoxButtons.YesNo);
+            if (answer == DialogResult.Yes)
+            {
+                var rowIndex = dataGridView1.CurrentCell.RowIndex;
+                var doctor_id = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
+                drop_single_dokter(Int16.Parse(doctor_id));
+                load_data_dokter();
+            }
         }
     }
 }

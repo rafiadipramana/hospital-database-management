@@ -219,6 +219,7 @@
             button4.TabIndex = 20;
             button4.Text = "Hapus";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // textBox6
             // 
