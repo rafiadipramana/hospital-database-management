@@ -49,6 +49,7 @@
             textBox6 = new TextBox();
             button5 = new Button();
             dateTimePicker1 = new DateTimePicker();
+            button6 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -171,9 +172,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(162, 338);
+            button2.Location = new Point(276, 338);
             button2.Name = "button2";
-            button2.Size = new Size(131, 29);
+            button2.Size = new Size(104, 29);
             button2.TabIndex = 16;
             button2.Text = "Simpan";
             button2.UseVisualStyleBackColor = true;
@@ -227,6 +228,7 @@
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(125, 27);
             textBox6.TabIndex = 21;
+            textBox6.Visible = false;
             // 
             // button5
             // 
@@ -240,13 +242,24 @@
             // 
             // dateTimePicker1
             // 
+            dateTimePicker1.CustomFormat = "dd MMMM yyyy";
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.Location = new Point(162, 163);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(218, 27);
             dateTimePicker1.TabIndex = 23;
-            dateTimePicker1.Value = new DateTime(2023, 6, 20, 17, 5, 47, 0);
+            dateTimePicker1.Value = new DateTime(2023, 6, 25, 0, 0, 0, 0);
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(162, 338);
+            button6.Name = "button6";
+            button6.Size = new Size(104, 29);
+            button6.TabIndex = 24;
+            button6.Text = "Reset";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // Form3
             // 
@@ -254,6 +267,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1130, 432);
             ControlBox = false;
+            Controls.Add(button6);
             Controls.Add(dateTimePicker1);
             Controls.Add(button5);
             Controls.Add(textBox6);
@@ -308,5 +322,6 @@
         private TextBox textBox6;
         private Button button5;
         private DateTimePicker dateTimePicker1;
+        private Button button6;
     }
 }

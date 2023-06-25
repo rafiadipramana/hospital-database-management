@@ -224,5 +224,10 @@ namespace MitraSehatHospital
                 load_data_dokter();
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            clear_form();
+        }
     }
 }
