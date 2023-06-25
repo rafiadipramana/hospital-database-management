@@ -14,6 +14,7 @@ namespace MitraSehatHospital
     public partial class Form2 : Form
     {
         private Form1 form1;
+        private MySqlConnection con;
         public Form2()
         {
             InitializeComponent();
@@ -47,7 +48,7 @@ namespace MitraSehatHospital
                 Database = "hospital"
             };
 
-            using var con = new MySqlConnection(builder.ConnectionString);
+            con = new MySqlConnection(builder.ConnectionString);
 
             con.Open();
 
@@ -60,6 +61,23 @@ namespace MitraSehatHospital
             }
 
             con.Close();
+        }
+
+        private void search_data_pasien(String keyword)
+        {
+            con.Open();
+            MySqlCommand dataCommand = new MySqlCommand("SELECT * FROM pasien_periksa WHERE `Nama Lengkap` LIKE @keyword", this.con);
+            dataCommand.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+            MySqlDataReader dataReader = dataCommand.ExecuteReader();
+            DataTable dataTable = new DataTable();
+            dataTable.Load(dataReader);
+            dataGridView1.DataSource = dataTable;
+            con.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            search_data_pasien(textBox6.Text);
         }
     }
 }

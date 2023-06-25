@@ -46,8 +46,9 @@
             textBox5 = new TextBox();
             dataGridView1 = new DataGridView();
             textBox6 = new TextBox();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
+            dateTimePicker1 = new DateTimePicker();
+            button5 = new Button();
+            button6 = new Button();
             textBox3 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -64,16 +65,16 @@
             // 
             // button2
             // 
-            button2.Location = new Point(162, 338);
+            button2.Location = new Point(276, 338);
             button2.Name = "button2";
-            button2.Size = new Size(185, 29);
+            button2.Size = new Size(104, 29);
             button2.TabIndex = 1;
-            button2.Text = "Simpan Data Pasien";
+            button2.Text = "Simpan";
             button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            button3.Location = new Point(599, 373);
+            button3.Location = new Point(858, 371);
             button3.Name = "button3";
             button3.Size = new Size(80, 29);
             button3.TabIndex = 2;
@@ -82,7 +83,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(685, 373);
+            button4.Location = new Point(944, 371);
             button4.Name = "button4";
             button4.Size = new Size(94, 29);
             button4.TabIndex = 3;
@@ -201,7 +202,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(382, 288);
+            dataGridView1.Size = new Size(640, 288);
             dataGridView1.TabIndex = 19;
             // 
             // textBox6
@@ -212,44 +213,57 @@
             textBox6.TabIndex = 20;
             textBox6.Text = "Cari data pasien";
             // 
-            // comboBox2
+            // dateTimePicker1
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(321, 165);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(59, 28);
-            comboBox2.TabIndex = 14;
+            dateTimePicker1.CustomFormat = "dd MMMM yyyy";
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.Location = new Point(162, 163);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(218, 27);
+            dateTimePicker1.TabIndex = 21;
             // 
-            // comboBox1
+            // button5
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(256, 165);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(59, 28);
-            comboBox1.TabIndex = 13;
+            button5.Location = new Point(569, 371);
+            button5.Name = "button5";
+            button5.Size = new Size(94, 29);
+            button5.TabIndex = 22;
+            button5.Text = "Cari";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(162, 338);
+            button6.Name = "button6";
+            button6.Size = new Size(104, 29);
+            button6.TabIndex = 23;
+            button6.Text = "Reset";
+            button6.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(162, 165);
+            textBox3.Location = new Point(255, 32);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(88, 27);
-            textBox3.TabIndex = 12;
+            textBox3.Size = new Size(125, 27);
+            textBox3.TabIndex = 24;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 421);
+            ClientSize = new Size(1130, 432);
             ControlBox = false;
+            Controls.Add(textBox3);
+            Controls.Add(button6);
+            Controls.Add(button5);
+            Controls.Add(dateTimePicker1);
             Controls.Add(textBox6);
             Controls.Add(dataGridView1);
             Controls.Add(textBox5);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
             Controls.Add(textBox4);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(label6);
@@ -291,8 +305,9 @@
         private TextBox textBox5;
         private DataGridView dataGridView1;
         private TextBox textBox6;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
+        private DateTimePicker dateTimePicker1;
+        private Button button5;
+        private Button button6;
         private TextBox textBox3;
     }
 }
