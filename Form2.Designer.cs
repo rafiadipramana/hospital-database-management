@@ -71,6 +71,7 @@
             button2.TabIndex = 1;
             button2.Text = "Simpan";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -80,6 +81,7 @@
             button3.TabIndex = 2;
             button3.Text = "Edit";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -89,6 +91,7 @@
             button4.TabIndex = 3;
             button4.Text = "Hapus";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // label1
             // 
@@ -240,6 +243,7 @@
             button6.TabIndex = 23;
             button6.Text = "Reset";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // textBox3
             // 
