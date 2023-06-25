@@ -131,7 +131,10 @@ namespace MitraSehatHospital
         }
         private void button3_Click(object sender, EventArgs e)
         {
-
+            var rowIndex = dataGridView1.CurrentCell.RowIndex;
+            var doctor_id = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
+            textBox6.Text = doctor_id;
+            load_single_dokter(Int16.Parse(doctor_id));
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -167,7 +170,15 @@ namespace MitraSehatHospital
 
             con.Open();
             MySqlCommand dataCommand;
-            dataCommand = new MySqlCommand("INSERT INTO doctors (fullname, nik, birth_date, birth_place, sex, type_id) VALUE (@fullname, @nik, @birth_date, @birth_place, @sex, @type_id)", con);
+            if (textBox6.Text == "")
+            {
+                dataCommand = new MySqlCommand("INSERT INTO doctors (fullname, nik, birth_date, birth_place, sex, type_id) VALUE (@fullname, @nik, @birth_date, @birth_place, @sex, @type_id", con);
+            }
+            else
+            {
+                dataCommand = new MySqlCommand("UPDATE doctors SET fullname = @fullname, nik = @nik, birth_date = @birth_date, birth_place = @birth_place, sex = @sex, type_id = @type_id WHERE id = @doctor_id", con);
+                dataCommand.Parameters.AddWithValue("@doctor_id", textBox6.Text);
+            }
             dataCommand.Parameters.AddWithValue("@fullname", nama_lengkap);
             dataCommand.Parameters.AddWithValue("@nik", nik);
             dataCommand.Parameters.AddWithValue("@birth_date", tgl_lahir);
