@@ -84,6 +84,7 @@ namespace MitraSehatHospital
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
+            textBox6.Text = "";
         }
 
         private void load_single_obat(int drug_id)
