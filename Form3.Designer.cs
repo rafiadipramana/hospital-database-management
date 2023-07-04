@@ -50,6 +50,7 @@
             button5 = new Button();
             dateTimePicker1 = new DateTimePicker();
             button6 = new Button();
+            button7 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -261,12 +262,23 @@
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
             // 
+            // button7
+            // 
+            button7.Location = new Point(944, 44);
+            button7.Name = "button7";
+            button7.Size = new Size(94, 29);
+            button7.TabIndex = 25;
+            button7.Text = "Export";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1130, 432);
             ControlBox = false;
+            Controls.Add(button7);
             Controls.Add(button6);
             Controls.Add(dateTimePicker1);
             Controls.Add(button5);
@@ -323,5 +335,6 @@
         private Button button5;
         private DateTimePicker dateTimePicker1;
         private Button button6;
+        private Button button7;
     }
 }

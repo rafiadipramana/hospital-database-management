@@ -50,6 +50,7 @@
             button5 = new Button();
             button6 = new Button();
             textBox3 = new TextBox();
+            button7 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -257,12 +258,23 @@
             textBox3.TabIndex = 24;
             textBox3.Visible = false;
             // 
+            // button7
+            // 
+            button7.Location = new Point(943, 44);
+            button7.Name = "button7";
+            button7.Size = new Size(94, 29);
+            button7.TabIndex = 25;
+            button7.Text = "Export";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1130, 432);
             ControlBox = false;
+            Controls.Add(button7);
             Controls.Add(textBox3);
             Controls.Add(button6);
             Controls.Add(button5);
@@ -318,5 +330,6 @@
         private Button button5;
         private Button button6;
         private TextBox textBox3;
+        private Button button7;
     }
 }

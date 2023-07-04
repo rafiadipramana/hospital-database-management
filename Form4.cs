@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClosedXML.Excel;
 using MySqlConnector;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
@@ -191,6 +192,52 @@ namespace MitraSehatHospital
             con.Close();
             clear_form();
             load_data_obat();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            // Membuat komponen DataTable
+            // Dimulai dari baris di bawah, komponen pada dataGridView1 dipindahkan ke komponen baru yaitu DataTable pada variabel dt
+            DataTable dt = new DataTable();
+            // Menambahkan kolom dataGridView1 ke DataTable
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                dt.Columns.Add(col.Name);
+            }
+
+            // Menambahkan baris/record data dari dataGridView1 ke DataTable
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                DataRow dRow = dt.NewRow();
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    dRow[cell.ColumnIndex] = cell.Value;
+                }
+                dt.Rows.Add(dRow);
+            }
+
+            // Membuat sebuah file Excel di memory
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                // Menambahkan worksheet ke file Excel
+                wb.Worksheets.Add(dt, "Sheet1");
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    // Membuat save file dialog untuk menentukan tempat penyimpanan file
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Filter = "Excel Files|*.xlsx";
+                    saveFileDialog.FileName = "Rekap Data Obat.xlsx";
+
+                    // Melakukan cek apakah user menekan tombol simpan
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Menyimpan file dengan nama dan lokasi yang dipilih oleh user
+                        File.WriteAllBytes(saveFileDialog.FileName, stream.ToArray());
+                        MessageBox.Show("File saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
         }
     }
 }
